@@ -5,6 +5,7 @@ from app.routes import api_blueprint
 
 app = Flask(__name__)
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cdr:123456@localhost:5432/user_data'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
