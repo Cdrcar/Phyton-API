@@ -1,24 +1,14 @@
+# In routes.py
 
-from flask import Flask, request, jsonify
-from models import User
-from database import db
+from flask import Blueprint, request, jsonify
+from app.models import User
+from app.database import db
 
-app = Flask(__name__)
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cdr:123456@localhost:5432/user_data'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize the database
-db.init_app(app)
-
-# Create the database tables
-with app.app_context():
-    db.create_all()
+api_blueprint = Blueprint('api', __name__)
 
 # API Endpoints to create users and retrieve users
 # POST /api/users
-@app.route('/api/users', methods=['POST'])
+@api_blueprint.route('/api/users', methods=['POST'])
 def create_user():
     try:
         data = request.get_json()
@@ -44,7 +34,7 @@ def create_user():
         return jsonify({'error': str(e)}), 500
 
 # GET /api/users/{user_id}
-@app.route('/api/users/<int:user_id>', methods=['GET'])
+@api_blueprint.route('/api/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
     try:
         # If using a database, retrieve the user by user ID
@@ -61,7 +51,3 @@ def get_user(user_id):
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-        
-# Run the Application
-if __name__ == '__main__':
-    app.run(debug=True)
