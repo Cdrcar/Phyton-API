@@ -1,4 +1,3 @@
-# In models.py
 
 from app.database import db  # Fix the import path
 
