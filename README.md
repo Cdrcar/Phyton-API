@@ -16,12 +16,14 @@
    - [Database Integration](#database-integration)
    - [Code Quality](#code-quality)
 
+
 3. [Task 2: Dockerise Application](#task-2-dockerise-your-application)
    - [Dockerfile Creation](#dockerfile-creation)
    - [Dependency Files](#dependency-files)
    - [Build the Docker Image](#build-the-docker-image)
    - [Run the Docker Container](#run-the-docker-container)
    - [Access the API](#access-the-api)
+
 
 4. [Task 3: Kubernetes Deployment with Manifests (Minikube)](#task-3-kubernetes-deployment-with-manifests-minikube)
    - [Install Minikube](#install-minikube)
